@@ -1,0 +1,23 @@
+{
+  "name": "api-test-suite",
+  "version": "1.0.0",
+  "description": "API tests for the Restful-Booker service: Playwright API tests in TypeScript plus a Postman collection run by Newman",
+  "private": true,
+  "scripts": {
+    "test": "npm run test:playwright && npm run test:postman",
+    "test:playwright": "playwright test",
+    "test:postman": "newman run postman/restful-booker.postman_collection.json -e postman/restful-booker.postman_environment.json -r cli,htmlextra --reporter-htmlextra-export newman-report/index.html",
+    "report": "playwright show-report",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "@types/node": "^22.0.0",
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "dotenv": "^16.4.5",
+    "newman": "^6.2.1",
+    "newman-reporter-htmlextra": "^1.23.1",
+    "typescript": "^5.6.0"
+  }
+}
